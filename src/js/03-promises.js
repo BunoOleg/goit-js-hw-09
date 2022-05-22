@@ -9,6 +9,8 @@ const refs = {
   amount: document.querySelector('[name="amount"]'),
 };
 
+refs.form.addEventListener('submit', onSubmit);
+
 function createPromise({ index, timeDelay }) {
   const shouldResolve = Math.random() > 0.3;
 
@@ -22,8 +24,6 @@ function createPromise({ index, timeDelay }) {
     }, timeDelay);
   });
 }
-
-refs.form.addEventListener('submit', onSubmit);
 
 function amount({ delay, step, amount }) {
   let timeDelay = delay;
@@ -51,6 +51,6 @@ function createDataObj() {
 
 function onSubmit(e) {
   e.preventDefault();
-
-  amount(createDataObj());
+  const data = createDataObj();
+  amount(data);
 }
