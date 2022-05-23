@@ -23,8 +23,10 @@ const options = {
 
     if (selectedDates[0].getTime() < Date.now()) {
       alert('Please choose a date in the future');
+      refs.btnStart.disabled = true;
+    } else {
+      refs.btnStart.disabled = false;
     }
-    refs.btnStart.disabled = false;
 
     refs.btnStart.addEventListener('click', () => {
       refs.btnStart.disabled = true;
